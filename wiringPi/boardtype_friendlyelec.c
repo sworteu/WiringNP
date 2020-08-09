@@ -158,8 +158,10 @@ static int getAllwinnerBoardID(char* boardId, int boardIdMaxLen )
     int ret = -1;
 
     if (!(f = fopen("/sys/class/sunxi_info/sys_info", "r"))) {
-        LOGE("open /sys/class/sunxi_info/sys_info failed.");
-        return -1;
+        if (!(f = fopen("/proc/cpuinfo", "r"))) {
+            LOGE("open /sys/class/sunxi_info/sys_info failed.");
+            return -1;
+        }
     }
 
     while (!feof(f)) {
@@ -218,8 +220,8 @@ int getBoardType(BoardHardwareInfo** retBoardInfo) {
     const char* amlogic = "Amlogic";
     const char* h3 = "sun8i";
     const char* h5 = "sun50iw2";
-    const char* h3_kernel4 = "Allwinnersun8iFamily";
-    const char* h5_kernel4 = "Allwinnersun50iw2Family";
+    const char* h3_kernel4 = "Allwinner sun8i Family";
+    const char* h5_kernel4 = "Allwinner sun50iw2 Family";
 
     //a64 and amlogic, only check hardware
     if (strncasecmp(hardware, a64, strlen(a64)) == 0
