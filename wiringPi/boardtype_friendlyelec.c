@@ -98,7 +98,7 @@ static int getFieldValueInCpuInfo(char* hardware, int hardwareMaxLen, char* revi
 
     if (!(f = fopen("/sys/devices/platform/board/info", "r"))) {
         if (!(f = fopen("/proc/cpuinfo", "r"))) {
-            LOGE("open /proc/cpuinfo failed.");
+            LOGE("getFieldValueInCpuInfo - open /proc/cpuinfo failed.");
             return -1;
         }
     }
@@ -159,7 +159,7 @@ static int getAllwinnerBoardID(char* boardId, int boardIdMaxLen )
 
     if (!(f = fopen("/sys/class/sunxi_info/sys_info", "r"))) {
         if (!(f = fopen("/proc/cpuinfo", "r"))) {
-            LOGE("open /sys/class/sunxi_info/sys_info failed.");
+            LOGE("getAlwinnerBoardID - open /proc/cpuinfo failed.");
             return -1;
         }
     }
