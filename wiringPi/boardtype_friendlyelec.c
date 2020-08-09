@@ -46,16 +46,16 @@ BoardHardwareInfo gAllBoardHardwareInfo[] = {
     {"sun8i", 0, NanoPi_R1,       "NanoPi-R1",       "9(0)"},
 
     // kernel 4.x
-    {"Allwinnersun8iFamily", 0, NanoPi_M1,       "NanoPi-M1",       "0(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_NEO,      "NanoPi-NEO",      "1(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_NEO_Air,  "NanoPi-NEO-Air",  "2(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_M1_Plus,  "NanoPi-M1-Plus",  "3(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_Duo,      "NanoPi-Duo",      "4(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_NEO_Core, "NanoPi-NEO-Core", "5(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_K1,       "NanoPi-K1",       "6(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_Hero,     "NanoPi-Hero",     "7(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_Duo2,     "NanoPi-Duo2",     "8(0)"},
-    {"Allwinnersun8iFamily", 0, NanoPi_R1,       "NanoPi-R1",       "9(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_M1,       "NanoPi-M1",       "0(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_NEO,      "NanoPi-NEO",      "1(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_NEO_Air,  "NanoPi-NEO-Air",  "2(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_M1_Plus,  "NanoPi-M1-Plus",  "3(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_Duo,      "NanoPi-Duo",      "4(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_NEO_Core, "NanoPi-NEO-Core", "5(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_K1,       "NanoPi-K1",       "6(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_Hero,     "NanoPi-Hero",     "7(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_Duo2,     "NanoPi-Duo2",     "8(0)"},
+    {"Allwinner sun8i Family", 0, NanoPi_R1,       "NanoPi-R1",       "9(0)"},
 
     // a64
     // {"sun50iw1p1", 0, NanoPi_A64, "NanoPi-A64", "0"},
@@ -159,7 +159,7 @@ static int getAllwinnerBoardID(char* boardId, int boardIdMaxLen )
 
     if (!(f = fopen("/sys/class/sunxi_info/sys_info", "r"))) {
         if (!(f = fopen("/proc/cpuinfo", "r"))) {
-            LOGE("open /sys/class/sunxi_info/sys_info failed.");
+            LOGE("open /proc/cpuinfo failed.");
             return -1;
         }
     }
