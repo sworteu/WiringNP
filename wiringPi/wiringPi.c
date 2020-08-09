@@ -1602,7 +1602,7 @@ int wiringPiFailure(int fatal, const char *message, ...) {
  */
 
 static void piBoardRevOops(const char *why) {
-    fprintf(stderr, "piBoardRev: Unable to determine board revision from /proc/cpuinfo\n");
+    fprintf(stderr, "piBoardRev: Unable to determine board revision from /etc/cpu_info\n");
     fprintf(stderr, " -> %s\n", why);
     fprintf(stderr, " ->  You may want to check:\n");
     fprintf(stderr, " ->  http://www.lemaker.org/\n"); /*modify for BananaPro by LeMmaker team*/
@@ -1614,8 +1614,8 @@ int isA20(void) {
     FILE *cpuFd;
     char line [120];
     char *d;
-    if ((cpuFd = fopen("/proc/cpuinfo", "r")) == NULL)
-        piBoardRevOops("Unable to open /proc/cpuinfo");
+    if ((cpuFd = fopen("/etc/cpu_info", "r")) == NULL)
+        piBoardRevOops("Unable to open /etc/cpu_info");
     while (fgets(line, 120, cpuFd) != NULL) {
         if (strncmp(line, "Hardware", 8) == 0)
             break;
